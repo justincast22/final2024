@@ -43,10 +43,10 @@ void chef::processOrders() {
                 ordermanager.cancelOrder();
                 break;
             case 5:
-                ordermanager.markOrderForPickup();
+                ordermanager.markPickedUp();
                 break;
             case 6:
-                ordermanager.markOrderPickedUp();
+                ordermanager.markOrderForPickup();
                 break;
             case 7:
                 ordermanager.markServed();

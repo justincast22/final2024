@@ -191,3 +191,87 @@ void OrderManager::sortOrdersByPriority() {
         return a.priority > b.priority;
     });
 }
+
+/** Marks an order as served and removes it from the queue. */
+void OrderManager::markServed() {
+    if (orders.empty()) {
+        cout << "No orders to serve.\n";
+        return;
+    }
+
+    cout << "\nOrders Ready to Be Served:\n";
+    bool foundReadyToServe = false;
+
+    for (size_t i = 0; i < orders.size(); ++i) {
+        if (orders[i].isCompleted) {
+            foundReadyToServe = true;
+            cout << i + 1 << ". Method: " << orders[i].method << ", Items: ";
+            for (const auto& item : orders[i].items) cout << item << " ";
+            cout << endl;
+        }
+    }
+
+    if (!foundReadyToServe) {
+        cout << "No completed orders are ready to be served.\n";
+        return;
+    }
+
+    int serveIndex;
+    cout << "Enter the number of the order to mark as served: ";
+    while (!(cin >> serveIndex) || serveIndex < 1 || serveIndex > static_cast<int>(orders.size())) {
+        cin.clear();
+        cin.ignore(10000, '\n');
+        cout << "Invalid input. Please enter a valid order number: ";
+    }
+
+    auto& order = orders[serveIndex - 1];
+    if (!order.isCompleted) {
+        cout << "This order is not marked as completed.\n";
+        return;
+    }
+
+    orders.erase(orders.begin() + (serveIndex - 1));
+    cout << "Order " << serveIndex << " has been served and removed from the queue.\n";
+}
+
+/** Marks an order as picked up and removes it from the queue. */
+void OrderManager::markOrderForPickup() {
+    if (orders.empty()) {
+        cout << "No orders to pick up.\n";
+        return;
+    }
+
+    cout << "\nOrders Ready for Pickup:\n";
+    bool foundReadyForPickup = false;
+
+    for (size_t i = 0; i < orders.size(); ++i) {
+        if (orders[i].isReadyForPickup) {
+            foundReadyForPickup = true;
+            cout << i + 1 << ". Method: " << orders[i].method << ", Items: ";
+            for (const auto& item : orders[i].items) cout << item << " ";
+            cout << endl;
+        }
+    }
+
+    if (!foundReadyForPickup) {
+        cout << "No orders are currently ready for pickup.\n";
+        return;
+    }
+
+    int pickupIndex;
+    cout << "Enter the number of the order to mark as picked up: ";
+    while (!(cin >> pickupIndex) || pickupIndex < 1 || pickupIndex > static_cast<int>(orders.size())) {
+        cin.clear();
+        cin.ignore(10000, '\n');
+        cout << "Invalid input. Please enter a valid order number: ";
+    }
+
+    auto& order = orders[pickupIndex - 1];
+    if (!order.isReadyForPickup) {
+        cout << "This order is not marked as ready for pickup.\n";
+        return;
+    }
+
+    orders.erase(orders.begin() + (pickupIndex - 1));
+    cout << "Order " << pickupIndex << " has been picked up and removed from the queue.\n";
+}

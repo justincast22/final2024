@@ -1,0 +1,12 @@
+# ninja log v6
+101	2720	7557407399665741	CMakeFiles/main.cpp.dir/main.cpp.obj	ddc1d0794d559045
+7	2739	7557407398730735	CMakeFiles/main.cpp.dir/chef.cpp.obj	bce14580005af32d
+39	2770	7557407399045650	CMakeFiles/main.cpp.dir/menu.cpp.obj	72a1e0c610a35bad
+141	2780	7557407400060911	CMakeFiles/main.cpp.dir/receipt.cpp.obj	697d8dc093456aaf
+61	2819	7557407399255658	CMakeFiles/main.cpp.dir/role.cpp.obj	b9d0481dbb35beff
+79	3027	7557407399445724	CMakeFiles/main.cpp.dir/order.cpp.obj	718b24adf0408caa
+120	3298	7557407399855710	CMakeFiles/main.cpp.dir/OrderManager.cpp.obj	e520e136bc2cc162
+25	1003	7557408164879450	CMakeFiles/main.cpp.dir/OrderManager.cpp.obj	e520e136bc2cc162
+8	641	7557409795594001	CMakeFiles/main.cpp.dir/chef.cpp.obj	bce14580005af32d
+44	984	7557409795953998	CMakeFiles/main.cpp.dir/OrderManager.cpp.obj	e520e136bc2cc162
+984	1413	7557409805354515	main.cpp.exe	b8b3e3e5158181fd
